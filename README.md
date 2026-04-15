@@ -106,6 +106,6 @@ smb://Seu Ip Aqui/MeuStorage
 
 ---
 
-## 📌 Conclusão
+## Conclusão
 
 Este projeto demonstra a criação de um **NAS seguro e eficiente**, focado em armazenamento e proteção de rede.

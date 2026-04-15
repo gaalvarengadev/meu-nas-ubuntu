@@ -1,4 +1,4 @@
-# Ubuntu Server Lab: NAS (Home Storage) com Segurança Avançada
+# Ubuntu Server Lab: NAS 
 
 Este projeto documenta a configuração de um servidor dedicado a **armazenamento em rede (NAS)** utilizando **Ubuntu Server**, com forte ênfase em **segurança de rede através do Nftables**.
 

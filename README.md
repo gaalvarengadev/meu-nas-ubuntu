@@ -56,7 +56,7 @@ Ao invés de utilizar máquinas virtuais, todo o projeto foi implementado direta
 
 ```bash
 sudo mkdir -p /home/storage/public
-sudo chown -R gabe:gabe /home/storage/public
+sudo chown -R seuUser:seuUser /home/storage/public
 sudo chmod -R 775 /home/storage/public
 ```
 
@@ -105,7 +105,7 @@ table inet filter {
 ### Acesso aos ficheiros
 
 ```bash
-smb://192.168.217.39/MeuStorage
+smb://Seu Ip Aqui/MeuStorage
 ```
 
 ---

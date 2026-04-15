@@ -8,23 +8,25 @@ O objetivo é criar uma solução robusta, segura e acessível para centralizaç
 
 ## Objetivos do Projeto
 
-1. **NAS (Network Attached Storage):**  
-   Centralizar o armazenamento de ficheiros acessíveis por múltiplos dispositivos na rede local.
+- **NAS (Network Attached Storage):**  
+  Centralizar o armazenamento de ficheiros acessíveis por múltiplos dispositivos na rede local.
 
-2. **Controle de Acesso:**  
-   Garantir autenticação segura e permissões adequadas no compartilhamento.
+- **Controle de Acesso:**  
+  Garantir autenticação segura e permissões adequadas no compartilhamento.
 
-3. **Segurança Avançada:**  
-   Implementar uma política de firewall baseada em *Default Drop* utilizando Nftables.
+- **Segurança Avançada:**  
+  Implementar uma política de firewall baseada em *Default Drop* utilizando Nftables.
 
 ---
 
 ## Stack Técnica
 
-- **Sistema Operativo:** Ubuntu Server  
-- **Serviço Principal:** Samba (SMB/CIFS)  
-- **Segurança:** Nftables (Firewall nativo)  
-- **Cliente de Teste:** Linux Mint (Nemo File Manager)  
+| Componente            | Tecnologia                  |
+|----------------------|----------------------------|
+| Sistema Operativo    | Ubuntu Server              |
+| Serviço Principal    | Samba (SMB/CIFS)           |
+| Segurança            | Nftables (Firewall nativo) |
+| Cliente de Teste     | Linux Mint (Nemo File Manager) |
 
 ---
 
@@ -42,11 +44,14 @@ O servidor atua como um **NAS centralizado**, permitindo:
 
 Ao invés de utilizar máquinas virtuais, todo o projeto foi implementado diretamente em hardware real. Isso trouxe um nível maior de controle sobre o ambiente e exigiu uma preparação completa da máquina.
 
-- **Preparação do equipamento:** foi feita a limpeza interna dos componentes e substituição de peças essenciais, incluindo instalação de processador e um HD, garantindo estabilidade para uso contínuo.
+- **Preparação do equipamento:**  
+  Foi feita a limpeza interna dos componentes e substituição de peças essenciais, incluindo instalação de processador e um HD, garantindo estabilidade para uso contínuo.
 
-- **Instalação direta do sistema:** o Ubuntu Server foi instalado diretamente no disco físico, com particionamento manual e configuração real de dispositivos (como `/dev/sda`), sem abstrações de virtualização.
+- **Instalação direta do sistema:**  
+  O Ubuntu Server foi instalado diretamente no disco físico, com particionamento manual e configuração real de dispositivos (como `/dev/sda`), sem abstrações de virtualização.
 
-- **Aproveitamento total de recursos:** sem camada de hypervisor, o servidor utiliza diretamente CPU e memória, o que reduz latência e melhora o desempenho no acesso aos ficheiros via rede.
+- **Aproveitamento total de recursos:**  
+  Sem camada de hypervisor, o servidor utiliza diretamente CPU e memória, o que reduz latência e melhora o desempenho no acesso aos ficheiros via rede.
 
 ---
 
@@ -64,7 +69,7 @@ sudo chmod -R 775 /home/storage/public
 
 ### 2. Configuração do Samba
 
-Arquivo: `/etc/samba/smb.conf`
+**Arquivo:** `/etc/samba/smb.conf`
 
 ```ini
 [MeuStorage]
@@ -80,9 +85,9 @@ Arquivo: `/etc/samba/smb.conf`
 
 ### 3. Firewall e Segurança (Nftables)
 
-Arquivo: `/etc/nftables.conf`
+**Arquivo:** `/etc/nftables.conf`
 
-```bash
+```conf
 table inet filter {
     chain input {
         type filter hook input priority 0; policy drop;
@@ -104,9 +109,41 @@ table inet filter {
 
 ### Acesso aos ficheiros
 
-```bash
+```text
 smb://Seu Ip Aqui/MeuStorage
 ```
+
+---
+
+## Evidências da Implementação
+
+### Acesso ao Servidor via SSH
+
+<p align="center">
+  <img src="img/acesso_ssh.jpeg" width="700">
+</p>
+
+**Descrição:** Nesta imagem é demonstrado o acesso remoto ao servidor utilizando SSH, incluindo informações do sistema como uso de recursos e IP.
+
+---
+
+### Estrutura de Diretórios do NAS
+
+<p align="center">
+  <img src="img/TesteStorage.jpeg" width="700">
+</p>
+
+**Descrição:** Exibição da estrutura de diretórios criada para o armazenamento (`/home/storage/public`), essencial para organização dos dados compartilhados.
+
+---
+
+### Configuração do Firewall com Nftables
+
+<p align="center">
+  <img src="img/nftables_config.jpeg" width="700">
+</p>
+
+**Descrição:** Configuração do arquivo `/etc/nftables.conf`, demonstrando a política de segurança baseada em *default drop* com liberação apenas de portas essenciais.
 
 ---
 
@@ -114,10 +151,10 @@ smb://Seu Ip Aqui/MeuStorage
 
 - Administração Linux (permissões e diretórios)  
 - Protocolo SMB/CIFS  
-- Firewall com Nftables (Default Drop)  
+- Firewall com Nftables (*Default Drop*)  
 
 ---
 
 ## Conclusão
 
-Este projeto demonstra a criação de um **NAS seguro e eficiente**, focado em armazenamento e proteção de rede.
+Este projeto demonstra a criação de um NAS seguro e eficiente, focado em armazenamento e proteção de rede.

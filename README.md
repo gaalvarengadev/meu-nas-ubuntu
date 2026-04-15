@@ -44,7 +44,7 @@ O servidor atua como um **NAS centralizado**, permitindo:
 
 ```bash
 sudo mkdir -p /home/storage/public
-sudo chown -R gabe:gabe /home/storage/public
+sudo chown -R usuario:usuario /home/storage/public
 sudo chmod -R 775 /home/storage/public
 ```
 
@@ -93,7 +93,7 @@ table inet filter {
 ### Acesso aos ficheiros
 
 ```bash
-smb://192.168.217.39/MeuStorage
+smb://Seu Ip Aqui/MeuStorage
 ```
 
 ---

@@ -1,4 +1,4 @@
-# 📂 Ubuntu Server Lab: NAS (Home Storage) com Segurança Avançada
+# Ubuntu Server Lab: NAS (Home Storage) com Segurança Avançada
 
 Este projeto documenta a configuração de um servidor dedicado a **armazenamento em rede (NAS)** utilizando **Ubuntu Server**, com forte ênfase em **segurança de rede através do Nftables**.
 
@@ -6,7 +6,7 @@ O objetivo é criar uma solução robusta, segura e acessível para centralizaç
 
 ---
 
-## 🚀 Objetivos do Projeto
+## Objetivos do Projeto
 
 1. **NAS (Network Attached Storage):**  
    Centralizar o armazenamento de ficheiros acessíveis por múltiplos dispositivos na rede local.
@@ -19,7 +19,7 @@ O objetivo é criar uma solução robusta, segura e acessível para centralizaç
 
 ---
 
-## 🛠️ Stack Técnica
+## Stack Técnica
 
 - **Sistema Operativo:** Ubuntu Server  
 - **Serviço Principal:** Samba (SMB/CIFS)  
@@ -28,7 +28,7 @@ O objetivo é criar uma solução robusta, segura e acessível para centralizaç
 
 ---
 
-## 🗄️ Arquitetura do Projeto
+## Arquitetura do Projeto
 
 O servidor atua como um **NAS centralizado**, permitindo:
 
@@ -38,9 +38,9 @@ O servidor atua como um **NAS centralizado**, permitindo:
 
 ---
 
-## 🔧 Configuração Passo a Passo
+## Configuração Passo a Passo
 
-### 1. 📁 Estrutura de Armazenamento
+### 1. Estrutura de Armazenamento
 
 ```bash
 sudo mkdir -p /home/storage/public
@@ -50,7 +50,7 @@ sudo chmod -R 775 /home/storage/public
 
 ---
 
-### 2. 🔗 Configuração do Samba
+### 2. Configuração do Samba
 
 Arquivo: `/etc/samba/smb.conf`
 
@@ -66,7 +66,7 @@ Arquivo: `/etc/samba/smb.conf`
 
 ---
 
-### 3. 🔐 Firewall e Segurança (Nftables)
+### 3. Firewall e Segurança (Nftables)
 
 Arquivo: `/etc/nftables.conf`
 
@@ -88,9 +88,9 @@ table inet filter {
 
 ---
 
-## 💻 Acesso ao Servidor
+## Acesso ao Servidor
 
-### 📁 Acesso aos ficheiros
+### Acesso aos ficheiros
 
 ```bash
 smb://192.168.217.39/MeuStorage

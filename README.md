@@ -1,4 +1,4 @@
-# Ubuntu Server Lab: NAS 
+# Ubuntu Server Lab: NAS
 
 Este projeto documenta a configuração de um servidor dedicado a **armazenamento em rede (NAS)** utilizando **Ubuntu Server**, com forte ênfase em **segurança de rede através do Nftables**.
 
@@ -38,13 +38,25 @@ O servidor atua como um **NAS centralizado**, permitindo:
 
 ---
 
+## Hardware: Implementação em Servidor Físico
+
+Ao invés de utilizar máquinas virtuais, todo o projeto foi implementado diretamente em hardware real. Isso trouxe um nível maior de controle sobre o ambiente e exigiu uma preparação completa da máquina.
+
+- **Preparação do equipamento:** foi feita a limpeza interna dos componentes e substituição de peças essenciais, incluindo instalação de processador e um HD, garantindo estabilidade para uso contínuo.
+
+- **Instalação direta do sistema:** o Ubuntu Server foi instalado diretamente no disco físico, com particionamento manual e configuração real de dispositivos (como `/dev/sda`), sem abstrações de virtualização.
+
+- **Aproveitamento total de recursos:** sem camada de hypervisor, o servidor utiliza diretamente CPU e memória, o que reduz latência e melhora o desempenho no acesso aos ficheiros via rede.
+
+---
+
 ## Configuração Passo a Passo
 
 ### 1. Estrutura de Armazenamento
 
 ```bash
 sudo mkdir -p /home/storage/public
-sudo chown -R usuario:usuario /home/storage/public
+sudo chown -R gabe:gabe /home/storage/public
 sudo chmod -R 775 /home/storage/public
 ```
 
@@ -93,12 +105,12 @@ table inet filter {
 ### Acesso aos ficheiros
 
 ```bash
-smb://Seu Ip Aqui/MeuStorage
+smb://192.168.217.39/MeuStorage
 ```
 
 ---
 
-## 📊 Resultados e Aprendizagem
+## Resultados e Aprendizagem
 
 - Administração Linux (permissões e diretórios)  
 - Protocolo SMB/CIFS  

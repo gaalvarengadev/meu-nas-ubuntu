@@ -265,7 +265,7 @@ ssh -p 2222 gabe@192.168.217.39
 ### Acesso via SSH com Chave Ed25519
 
 <p align="center">
-  <img src="img/ssh_key_access.jpeg" width="700">
+  <img src="img/sshkey.jpeg" width="700">
 </p>
 
 **Descrição:** Geração do par de chaves Ed25519 no cliente (`ssh-keygen`), cópia para o servidor via `ssh-copy-id` e login bem-sucedido sem senha. O servidor exibe informações atualizadas do sistema, confirmando o acesso autenticado por chave.
